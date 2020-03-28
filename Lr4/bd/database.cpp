@@ -8,7 +8,7 @@ DataBase::DataBase(QObject *parent,const QString& name) : QObject(parent)
 {
     db = new QSqlDatabase();
     *db = QSqlDatabase::addDatabase(name);
-    db->setDatabaseName("/Qt/base.sqlite");
+    db->setDatabaseName("base.sqlite");
     db->open();
 }
 
