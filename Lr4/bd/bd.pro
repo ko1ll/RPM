@@ -16,16 +16,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    connect.cpp \
     database.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    tablewiew.cpp \
+    update.cpp
 
 HEADERS += \
+    connect.h \
     database.h \
-    mainwindow.h
+    mainwindow.h \
+    tablewiew.h \
+    update.h
 
 FORMS += \
-    mainwindow.ui
+    connect.ui \
+    mainwindow.ui \
+    tablewiew.ui \
+    update.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

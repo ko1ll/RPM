@@ -6,7 +6,9 @@
 #include "ui_mainwindow.h"
 #include "database.h"
 #include <QInputDialog>
-
+#include "connect.h"
+#include "update.h"
+#include "tablewiew.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -30,10 +32,24 @@ MainWindow::MainWindow(QWidget *parent)
            bd->useTable(Name);
         }
     });
-    connect(bd,&DataBase::SetResult,ui->tablename,&QLineEdit::setText);
     connect(ui->addbtm,&QPushButton::pressed,[=](){
-       bd->insert(ui->namevalue->text(),ui->lastnamevalue->text());
+        class connect b(this);
+        if (b.exec() == QDialog::Accepted){
+            bd->insert(b.first(),b.second());
+        } else return;
     });
+    connect(ui->updatebtm,&QPushButton::pressed,[=](){
+        class update b(this);
+        if (b.exec() == QDialog::Accepted){
+            bd->updated(b.first(),b.second());
+        } else return;
+    });
+    connect(ui->tableview,&QPushButton::pressed,[=](){
+        class tablewiew b(this);
+        if (b.exec() == QDialog::Accepted){
+        } else return;
+    });
+    connect(bd,&DataBase::SetResult,ui->tablename,&QLineEdit::setText);
     connect(bd,&DataBase::up_date,[&](QString first,QString second,QString min,QString max){
         ui->namevalue->setText(first);
         ui->lastnamevalue->setText(second);

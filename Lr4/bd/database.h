@@ -34,10 +34,13 @@ public slots:
     void prev();
     //Del
     void del();
+    //Update
+    void updated(const QString&,const QString&);
 private:
      QSqlDatabase* db;
-     QString inUse;
-     int countmin = 1,countmax;
+     QString inUse,inName,inLastName;
+     int countmin,countmax;
+     QSqlQuery result;
 signals:
      void up_date(QString,QString,QString,QString);
      void SetResult(QString);
