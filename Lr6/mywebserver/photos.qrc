@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>tray.jpg</file>
+        <file>close.jpg</file>
+        <file>open.jpg</file>
+        <file>settings.jpg</file>
+        <file>exit.jpg</file>
+    </qresource>
+</RCC>
