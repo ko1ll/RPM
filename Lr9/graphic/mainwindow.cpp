@@ -56,6 +56,8 @@ MainWindow::MainWindow(QWidget *parent)
         ui->Start->setText("stop");
     } else {
         massive->terminate();
+        
+        ui->Start->setText("stopped");
     }
     });
 
