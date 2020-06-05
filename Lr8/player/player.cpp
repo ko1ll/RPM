@@ -77,7 +77,7 @@ player::player(QWidget *parent)
         saveTimings(playlist->currentMedia());
         playlist->setCurrentIndex(index.row());
         mediaPLayer->setPosition(getPosition(playlist->currentMedia()));
-        mediaPLayer->play();
+        ui->Play->click();
     });
     connect(mediaPLayer,&QMediaPlayer::currentMediaChanged,[&](const QMediaContent &content){
         mediaPLayer->setPosition(getPosition(content));
