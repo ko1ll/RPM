@@ -43,5 +43,6 @@ excelMain::~excelMain()
     excel->dynamicCall("Quit()");
     delete books;
     delete excel;
+    delete ui;
 }
 
